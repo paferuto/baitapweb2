@@ -57,3 +57,13 @@ app.put("/fashions", cors(), async (req, res) => {
   const result = await fashionCollection.find({ _id: o_id }).toArray();
   res.send(result[0]);
 });
+
+app.delete("/fashions/:id", cors(), async (req, res) => {
+  //find detail Fashion with id
+  var o_id = new ObjectId(req.params["id"]);
+  const result = await fashionCollection.find({ _id: o_id }).toArray();
+  //update json Fashion into database
+  await fashionCollection.deleteOne({ _id: o_id });
+  //send Fashion after remove
+  res.send(result[0]);
+});

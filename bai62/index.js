@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
   res.send("This Web server is processed for MongoDB");
 });
 const { MongoClient, ObjectId } = require("mongodb");
-client = new MongoClient("mongodb://127.0.0.1:27017");
+client = new MongoClient("mongodb+srv://haodh20411:LRwfwGFPFYZuitvY@cluster0.nmteldq.mongodb.net/test");
 client.connect();
 database = client.db("FashionData2");
 fashionCollection = database.collection("Fashion");
